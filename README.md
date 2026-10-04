@@ -18,29 +18,8 @@ stepper motors and took commands from a custom knob controller over ESP-NOW.
 
 - **Wi-Fi access point + phone web page**: no app to install and no internet
   needed. The phone joins the `MoireDisc` network and the control page opens.
-- **Motor control**:
-  - *Manual*: a speed slider from −100 % to +100 %, with a centre detent at 0,
-    plus a **Reverse** button.
-  - *Sweep*: the speed follows a slow sine wave between a low and a high speed,
-    with an adjustable cycle time. Set the low speed below zero to make the
-    disc rock back and forth.
-  - A big **Stop** button.
-  - The speed changes gradually (soft ramp), and the direction pin only switches
-    while the motor is stopped. This protects the motor, gearbox and power
-    supply.
-- **Light effects** (switching between effects crossfades; nothing flashes):
-  - *Gradient*: a colour gradient that turns around the ring. You set the
-    colour, spread and rotation. This replaces the old COLOR mode.
-  - *Rainbow*: one full rainbow turning around the ring, with the colours
-    slowly drifting. This is the old standalone look.
-  - *Solid*: one colour on every LED.
-  - *Aurora* (new): soft colour clouds that drift around the ring. It is made
-    from two hue waves travelling in opposite directions and a gentle
-    brightness wave. Every period is 7 s or longer, and the brightness never
-    drops below about 35 %.
-  - *Off*.
-  - **Turn with the motor**: the ring's rotation follows the motor's real speed
-    and direction, so the light pattern turns along with the disc.
+- **Motor control**
+- **Light effects**
 - **Settings are saved** in flash, 2 s after the last change. After a power
   cycle the disc starts with whatever was set last, so it runs on its own
   without a phone. The first boot uses slow motor speed and the Rainbow effect.
