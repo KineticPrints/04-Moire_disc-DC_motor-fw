@@ -9,7 +9,7 @@ and light controls.
 It runs on a **Seeed XIAO ESP32-C3** or a **Seeed XIAO ESP32-C6**. Both use the
 same source code and pins.
 
-This is a rework of [04-Moire disc](../04-Moire%20disc). That version drove two
+This is a rework of [04-Moire disc](https://github.com/KineticPrints/04-Moire_disc-controller_fw). That version drove two
 stepper motors and took commands from a custom knob controller over ESP-NOW.
 
 ---
