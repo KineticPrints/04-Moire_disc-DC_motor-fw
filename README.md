@@ -28,15 +28,61 @@ stepper motors and took commands from a custom knob controller over ESP-NOW.
 
 ---
 
+## Using it
+
+1. Power the disc. It starts with the last saved settings.
+2. On the phone, join the Wi-Fi network **`MoireDisc`**. The password is
+   **`moiredisc`**.
+3. Most phones then open the control page on their own, as a "Sign in to
+   network" page.
+4. If the phone warns that the network has no internet, choose to **stay
+   connected**.
+
+### The control page doesn't open
+
+The page lives at **http://192.168.4.1**. Type exactly that into the browser
+address bar, including `http://`. Don't type it into the search box.
+
+Only plain `http://` addresses get redirected to the control page. Almost every
+website today uses `https://`, and the disc can't redirect those, so opening
+your usual home page or google.com shows an error instead of the controls.
+
+If **http://192.168.4.1** doesn't load either:
+
+- **Turn off mobile data.** With no internet on `MoireDisc`, the phone may send
+  everything over mobile data instead, and the disc never sees the request.
+- **Android: turn off Private DNS** (Settings → Network & internet → Private
+  DNS → Off). With Private DNS on, the phone skips the disc's DNS and the
+  sign-in page never appears.
+- **iPhone: turn off iCloud Private Relay and Limit IP Address Tracking** for
+  the `MoireDisc` network (Settings → Wi-Fi → ⓘ next to `MoireDisc`).
+- **Turn off "HTTPS-only" / "Always use secure connections"** in the browser,
+  or use a different browser. Those settings refuse to open `http://` pages.
+- **Check that you are still on `MoireDisc`.** Some phones drop a network with
+  no internet after a few seconds and rejoin your home Wi-Fi. Forget the home
+  network for a moment, or turn off "Switch to mobile data" / "Auto network
+  switch".
+- **Open the sign-in page by hand.** On Android, tap the `MoireDisc` network
+  in the Wi-Fi list (or the "Sign in to network" notification). On iPhone, tap
+  ⓘ next to the network.
+- **Forget the network and join again**, or turn the phone's Wi-Fi off and on.
+  Power-cycle the disc if nothing helps.
+
+The status dot in the top right of the page turns green and shows how many
+phones are connected. **Reset to defaults** at the bottom of the page restores
+the first-boot settings.
+
+---
+
 ## Hardware
 
 | Part | Notes |
 |---|---|
 | Seeed XIAO ESP32-C3 **or** XIAO ESP32-C6 | Firmware builds for both |
 | Pololu MAX14870 single brushed DC motor driver carrier | Sign-magnitude control through DIR + PWM, motor supply 4.5–36 V |
-| Brushed DC (gear) motor | Drives the disc |
+| S30K brushed DC gear motor | Drives the disc |
 | 9 × WS2812B / NeoPixel LEDs | GRB, 800 kHz |
-| Power supply | <!-- TODO: motor supply voltage, and how the 5 V rail is made --> |
+| Power supply | 9 V or 12 V DC, at least 1 A |
 
 ### Pinout
 
@@ -55,6 +101,3 @@ The electronics sit on a hand-wired perfboard, with the XIAO and the MAX14870
 carrier plugged into female headers so either one can be swapped.
 
 ![Perfboard layout](docs/perfboard_layout.png)
-
-  LED flickers, add a level shifter (e.g. 74AHCT125) or run the first LED from
-  a slightly lower voltage.
