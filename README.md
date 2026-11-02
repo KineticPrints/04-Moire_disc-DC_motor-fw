@@ -79,7 +79,7 @@ the first-boot settings.
 | Part | Notes |
 |---|---|
 | Seeed XIAO ESP32-C3 **or** XIAO ESP32-C6 | Firmware builds for both |
-| Pololu MAX14870 single brushed DC motor driver carrier | Sign-magnitude control through DIR + PWM, motor supply 4.5–36 V |
+| Pololu MAX14870 single brushed DC motor driver carrier | Control through DIR + PWM |
 | S30K brushed DC gear motor | Drives the disc |
 | 9 × WS2812B / NeoPixel LEDs | GRB, 800 kHz |
 | Power supply | 9 V or 12 V DC, at least 1 A |
